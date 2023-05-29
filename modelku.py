@@ -6,13 +6,13 @@ from tensorflow.keras.applications.inception_v3 import InceptionV3
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from tensorflow.keras.layers import Flatten, Dense, Dropout, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
-from tensorflow.keras.optimizers import SGD #ADAM. SGD
+from tensorflow.keras.optimizers import Adam
 
 IMAGE_SIZE = 224
 NUM_CLASSES = 6
 BATCH_SIZE = 32 #32                             , 22                                     , 22                                     , 22
 # BATCH_SIZE2 = 19 #26 Loss: 0.60 Accuracy: 68.75%, 16 Loss: 0.82 Accuracy: 81.25% epoch:50, 16 Loss: 1.01 Accuracy: 81.25% epoch:60, 16 Loss: 6.32 Accuracy: 62.50% epoch:50
-EPOCHS = 60
+EPOCHS = 50
 
 file_dir = 'data'
 train_dir = os.path.join(file_dir, 'train')
@@ -20,7 +20,7 @@ valid_dir = os.path.join(file_dir, 'validation')
 
 train_datagen = ImageDataGenerator(
     rescale=1./255,
-    rotation_range=40, #20, 30, 40, from 50 to 60
+    rotation_range=60, #20, 30, 40, from 50 to 60
     width_shift_range=0.2,
     height_shift_range=0.2,
     shear_range=0.2,
@@ -60,7 +60,7 @@ predictions = Dense(NUM_CLASSES, activation='softmax')(x)
 model = Model(inputs=base_model.input, outputs=predictions)
 
 
-model.compile(optimizer=tf.keras.optimizers.SGD(learning_rate=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.0001), loss='categorical_crossentropy', metrics=['accuracy'])
 
 
 # create call back
@@ -118,7 +118,7 @@ plt.legend(['train', 'val'], loc='upper right')
 plt.show()
 
 from tensorflow.keras.models import save_model
-save_model(model, "modelku-8.h5")
+save_model(model, "modelku-7.h5")
 
 
 
