@@ -2,6 +2,9 @@
 Model untuk pembuatan aplikasi Tolong!
 
 # History
+# =====================
+
+# Model wound classification
 => modelku.py memiliki validation_akurasi 73.88% ||
    Link model: [first model](https://drive.google.com/drive/folders/1LmyDdjciwL7uOATTv46VulE1uslI3HD5?usp=sharing)
 => modelku-2.py memiliki validation_akurasi 77.61% ||
