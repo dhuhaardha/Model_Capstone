@@ -1,5 +1,5 @@
 # Model_Capstone
-Model untuk pembuatan aplikasi Tolong!
+Model untuk pembuatan Capstone Project App Tolong!
 
 # History
 # =====================
